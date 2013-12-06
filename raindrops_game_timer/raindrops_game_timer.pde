@@ -1,26 +1,31 @@
 Catcher c;
 Raindrops[] r;
-int index=1;
-int oldt=0;
+Timer t;
+int score=0;
 void setup() {
   size ( 800, 800);
   c=new Catcher();
-  r= new Raindrops[15000];
+  r= new Raindrops[1500];
+  t =new Timer();
   for (int i=0; i<r.length; i++) {
     r[i]= new Raindrops();
   }
+  textSize(32);
 }
 void draw() {
   background(0);
   c.display();
-  for (int i=0;i< index;i++) {
+  t.addDrops(r);
+  for (int i=0;i< t.index;i++) {
     r[i].display();
     r[i].move();
-    r[i].checkCatcher(c);
+
+    if (r[i].touch(c)) {
+      score++;
+      r[i].loc.x=2*width;
+    }
   }
-  if (millis()-oldt>=10 && index< r.length) {
-    index++;
-    oldt=millis();
-  }
+  text(score, 50, 50);
+  println(score);
 }
 
