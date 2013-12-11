@@ -19,6 +19,7 @@ class Raindrops {
     c=color(random(190, 210), 100, 100);
     //make it so that the raindrop will not have broder lines
     noStroke();
+    
   }
   void display() {
     //fill the raindrop with the color established above
