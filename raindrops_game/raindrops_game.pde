@@ -2,9 +2,11 @@
 Catcher c;
 Raindrops[] r;
 Timer t;
+StartScreen start;
 int score, finishedDrops;
-PImage happy,sad;
-float winReq;
+PImage happy, sad, cloud;
+float winReq; 
+boolean go;
 void setup() {
   //choose size
   size ( 800, 800);
@@ -12,22 +14,34 @@ void setup() {
   score=0;
   finishedDrops=0;
   winReq=.9;
+  go=false;
   c=new Catcher();
   t =new Timer();
   r= new Raindrops[100];
+  start= new StartScreen();
   //initialize each raindrop
   for (int i=0; i<r.length; i++) {
     r[i]= new Raindrops();
   }
   //establish text size and mode
   textSize(32);
-  textAlign(CENTER);
+  textAlign(CENTER, CENTER);
   //load the image for the smiley and sad faces and set mode
   happy=loadImage("smile.png");
   sad=loadImage("frown.png");
   imageMode(CENTER);
 }
 void draw() {
+  if (start.update()) {
+    game();
+  }
+  if(!start.update()) {
+    start.display();
+    
+  }
+}
+
+void game() {
   //set a black background
   background(0);
   //Display and move the catcher
@@ -53,12 +67,12 @@ void draw() {
   text(score, 50, 50);
   println(finishedDrops);
   /*When all the dots are finished,and the score is greater than or equal to the
-  percentage of the possible score required to win display win screen*/ 
+   percentage of the possible score required to win display win screen*/
   if (score>=r.length*winReq && finishedDrops==r.length) {
     winScreen();
   }
   /*When all the dots are finished,and the score is less than the
-  percentage of the possible score required to win display lose screen*/ 
+   percentage of the possible score required to win display lose screen*/
   if (score<r.length*winReq && finishedDrops==r.length) {
     loseScreen();
   }
@@ -71,7 +85,7 @@ void winScreen() {
   //display the smiley face in the place of the catcher
   image(happy, mouseX, height-100, 200, 200);
 }
-void loseScreen(){
+void loseScreen() {
   //display uncongratulatory text
   text("wow.... I guess the answer wasn't in the pdf", width/2, height/2);
   //make the catcher invisible
@@ -79,5 +93,4 @@ void loseScreen(){
   //display the sad face in the place of the catcher
   image(sad, mouseX, height-100, 200, 200);
 }
-  
 
