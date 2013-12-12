@@ -1,10 +1,12 @@
 //declare all classes, arrays, and variables
 Catcher c;
 Raindrops[] r;
+Pig[] p;
 Timer t;
+PigTimer pt;
 StartScreen start;
+EndScreen end;
 int score, finishedDrops;
-PImage happy, sad, cloud;
 float winReq; 
 boolean go;
 void setup() {
@@ -17,30 +19,35 @@ void setup() {
   go=false;
   c=new Catcher();
   t =new Timer();
+  pt=new PigTimer();
   r= new Raindrops[100];
+  p=new Pig[3];
   start= new StartScreen();
+  end= new EndScreen();
   //initialize each raindrop
   for (int i=0; i<r.length; i++) {
     r[i]= new Raindrops();
+  }
+  for (int i=0; i<p.length; i++) {
+    p[i]= new Pig();
   }
   //establish text size and mode
   textSize(32);
   textAlign(CENTER, CENTER);
   //load the image for the smiley and sad faces and set mode
-  happy=loadImage("smile.png");
-  sad=loadImage("frown.png");
-  imageMode(CENTER);
+    colorMode(HSB, 360, 100, 100);
 }
 void draw() {
-  if (start.update()) {
+  if (go) {
     game();
   }
-  if(!start.update()) {
+  if (!go) {
     start.display();
-    
   }
 }
-
+void mousePressed() {
+  go=start.run();
+}
 void game() {
   //set a black background
   background(0);
@@ -61,36 +68,31 @@ void game() {
       r[i].loc.y=3*height;
     }
   }
+  for (int i=0;i< pt.index;i++) {
+    p[i].display();
+    p[i].move();
+    //If the raindrop is touching the catcher, increase score and move raindrop off the screen
+    if (p[i].touch(c)) {
+      score-=10;
+      p[i].loc.x=2*width;
+    }
+  }
+
   //turn on timer to add drops at defined intervals
   t.addDrops(r);
+  pt.addPig(p);
   //display score
   text(score, 50, 50);
-  println(finishedDrops);
   /*When all the dots are finished,and the score is greater than or equal to the
    percentage of the possible score required to win display win screen*/
   if (score>=r.length*winReq && finishedDrops==r.length) {
-    winScreen();
+    end.winScreen(c);
   }
   /*When all the dots are finished,and the score is less than the
    percentage of the possible score required to win display lose screen*/
   if (score<r.length*winReq && finishedDrops==r.length) {
-    loseScreen();
+    end.loseScreen(c);
   }
 }
-void winScreen() {
-  //display congratulatory text
-  text("You win a Case of Satisfaction!!!!", width/2, height/2);
-  //make the catcher invisible
-  c.d=0;
-  //display the smiley face in the place of the catcher
-  image(happy, mouseX, height-100, 200, 200);
-}
-void loseScreen() {
-  //display uncongratulatory text
-  text("wow.... I guess the answer wasn't in the pdf", width/2, height/2);
-  //make the catcher invisible
-  c.d=0;
-  //display the sad face in the place of the catcher
-  image(sad, mouseX, height-100, 200, 200);
-}
+
 

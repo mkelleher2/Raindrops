@@ -14,8 +14,8 @@ class StartScreen {
     fill(0);
     text("Start", width/2, height*9/20);
   }
-  boolean update() {
-    if (mousePressed && mouseX>width/4 && mouseX<3*width/4 &&mouseY>height*17/40 && mouseY<height*19/40) {
+  boolean run() {
+    if (mouseX>width/4 && mouseX<3*width/4 &&mouseY>height*17/40 && mouseY<height*19/40) {
       return true;
     }
     else {
