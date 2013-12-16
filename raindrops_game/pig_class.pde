@@ -6,6 +6,7 @@ class Pig {
   PVector acc;
   int d;
   PImage pig;
+  boolean disp;
 
   Pig() {
     //initialize all variables
@@ -15,15 +16,20 @@ class Pig {
     acc= new PVector(0, .01);
     imageMode(CENTER);
     pig=loadImage("pig.png");
+    disp=true;
   }
   void display() {
-    image(pig, loc.x, loc.y, d, d);
+    if (disp) {
+      image(pig, loc.x, loc.y, d, d);
+    }
   }
   void move() {
-    //move the pig at the established velocity
-    loc.add(vel);
-    //accelerate the  at the established velocity
-    vel.add(acc);
+    if (disp) {
+      //move the pig at the established velocity
+      loc.add(vel);
+      //accelerate the  at the established velocity
+      vel.add(acc);
+    }
   }
   //Check if the drop it touching the catcher
   boolean touch(Catcher ca) {
@@ -37,3 +43,4 @@ class Pig {
     }
   }
 }
+

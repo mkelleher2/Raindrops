@@ -2,6 +2,7 @@ class StartScreen {
   PImage cloud;
 
   StartScreen() {
+    colorMode(HSB,360,100,100);
     cloud=loadImage("cloud.png");
     rectMode(CENTER);
     textAlign(CENTER, CENTER);

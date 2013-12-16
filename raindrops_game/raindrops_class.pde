@@ -6,6 +6,7 @@ class Raindrops {
   PVector acc;
   int d;
   color c;
+  boolean disp;
 
   Raindrops() {
     //initialize all variables
@@ -18,19 +19,24 @@ class Raindrops {
     c=color(random(190, 210), 100, 100);
     //make it so that the raindrop will not have broder lines
     noStroke();
-      colorMode(HSB, 360, 100, 100);
+    colorMode(HSB, 360, 100, 100);
+    disp=true;
   }
   void display() {
-    //fill the raindrop with the color established above
-    fill(c);
-    //create an ellipse for the raindrop
-    ellipse(loc.x, loc.y, d, d);
+    if (disp) {
+      //fill the raindrop with the color established above
+      fill(c);
+      //create an ellipse for the raindrop
+      ellipse(loc.x, loc.y, d, d);
+    }
   }
   void move() {
-    //move the drop at the established velocity
-    loc.add(vel);
-    //accelerate the drop at the established velocity
-    vel.add(acc);
+    if (disp) {
+      //move the drop at the established velocity
+      loc.add(vel);
+      //accelerate the drop at the established velocity
+      vel.add(acc);
+    }
   }
   //Check if the drop it touching the catcher
   boolean touch(Catcher ca) {
