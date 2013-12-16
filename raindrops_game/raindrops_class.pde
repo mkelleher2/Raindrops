@@ -16,7 +16,7 @@ class Raindrops {
     acc= new PVector(0, .01);
     score=0;
     //set the color mode to HSB and pick a random color within a range of blues for the raindrop
-    c=color(random(190, 210), 100, 100);
+    c=color(240, 100, 100);
     //make it so that the raindrop will not have broder lines
     noStroke();
     colorMode(HSB, 360, 100, 100);

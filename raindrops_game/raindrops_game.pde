@@ -9,9 +9,10 @@ EndScreen end;
 int score, finishedDrops, d, pigsCaught;
 float winReq; 
 boolean go;
+PImage scenery;
 void setup() {
   //choose size
-  size ( 800, 800);
+  size ( 800, 600);
   //initialize variables, classes, and arrays 
   score=0;
   finishedDrops=0;
@@ -38,6 +39,7 @@ void setup() {
   colorMode(HSB, 360, 100, 100);
   d=0;
   pigsCaught=0;
+  scenery=loadImage("scenery.jpg");
 }
 
 void draw() {
@@ -58,7 +60,8 @@ void mousePressed() {
 
 void game() {
   //set a black background
-  background(0);
+  scenery.resize(width,height);
+  background(scenery);
   //Display and move the catcher
   c.move();
   //have the raindrops display and move
