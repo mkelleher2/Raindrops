@@ -21,10 +21,11 @@ void setup() {
   c=new Catcher();
   t =new Timer();
   pt=new PigTimer();
-  r= new Raindrops[200];
+  r= new Raindrops[100];
   p=new Pig[6];
   start= new StartScreen();
   end= new EndScreen();
+  noStroke();
   //initialize each raindrop
   for (int i=0; i<r.length; i++) {
     r[i]= new Raindrops();
@@ -94,12 +95,15 @@ void game() {
   //turn on timer to add drops at defined intervals
   t.addDrops(r);
   pt.addPig(p);
-  fill(200,100,100);
+  fill(60,100,100);
+  rect(50,50,110,100);
+  rect(width-60,50,120,110);
+  fill(240,100,100);
   //display score
   text("Score: \n"+ score, 60, 50);
   text("Lives: \n"+ (3-pigsCaught), width-60,50);
   /*When all the dots are finished,and the score is greater than or equal to the
    percentage of the possible score required to win display win screen*/
- end.display(r, c, p);
+ end.display(r, c, p,scenery);
 }
 

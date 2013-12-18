@@ -6,7 +6,7 @@ class Timer {
     //initialize all variables
     oldt=0;
     index=1;
-    interval=100;
+    interval=200;
   }
   //create a function to add drops referencing a raindrop array
   void addDrops(Raindrops[] ra) {

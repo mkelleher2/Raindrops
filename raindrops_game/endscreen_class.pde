@@ -8,22 +8,24 @@ class EndScreen {
     colorMode(HSB, 360, 100, 100);
   }
 
-  void winScreen() {
+  void winScreen(PImage C) {
     //display congratulatory text
-    fill(200, 100, 100);
+    fill(240, 100, 100);
     text("You win a Case of Satisfaction!!!!", width/2, height/2);
     //display the smiley face in the place of the catcher
     image(happy, mouseX, height-100, 200, 200);
+    C.filter(BLUR);
   }
-  void loseScreen() {
+  void loseScreen(PImage C) {
     //display uncongratulatory text
-    fill(200, 100, 100);
+    fill(240, 100, 100);
     text("wow..... I guess the answer wasn't in the pdf", width/2, height/2);
     //display the sad face in the place of the catcher
     image(sad, mouseX, height-100, 200, 200);
+    C.filter(BLUR);
   }
 
-  void display(Raindrops[] ra, Catcher ca, Pig[] pig) {
+  void display(Raindrops[] ra, Catcher ca, Pig[] pig, PImage C) {
     if (score>=ra.length*winReq && finishedDrops==r.length) {
       for (int i=0;i<ra.length;i++) {
         ra[i].disp=false;
@@ -32,8 +34,8 @@ class EndScreen {
         pig[i].disp=false;
       }
       ca.disp=false;
-      
-      end.winScreen();
+
+      end.winScreen(C);
     }
     /*When all the dots are finished,and the score is less than the
      percentage of the possible score required to win display lose screen*/
@@ -45,7 +47,7 @@ class EndScreen {
         pig[i].disp=false;
       }
       ca.disp=false;
-      end.loseScreen();
+      end.loseScreen(C);
     }
     if (pigsCaught==3) {
       for (int i=0;i<ra.length;i++) {
@@ -55,7 +57,7 @@ class EndScreen {
         pig[i].disp=false;
       }
       ca.disp=false;
-      end.loseScreen();
+      end.loseScreen(C);
     }
   }
 }
