@@ -9,14 +9,14 @@ EndScreen end;
 int score, finishedDrops, d, pigsCaught;
 float winReq; 
 boolean go;
-PImage scenery;
+PImage scenery,corn,pig;
 void setup() {
   //choose size
   size ( 800, 600);
   //initialize variables, classes, and arrays 
   score=0;
   finishedDrops=0;
-  winReq=.9;
+  winReq=.75;
   go=false;
   c=new Catcher();
   t =new Timer();
@@ -41,6 +41,8 @@ void setup() {
   d=0;
   pigsCaught=0;
   scenery=loadImage("scenery.jpg");
+  corn=loadImage("corn.png");
+  pig=loadImage("pig.png");
 }
 
 void draw() {
@@ -67,7 +69,7 @@ void game() {
   c.move();
   //have the raindrops display and move
   for (int i=0;i< t.index;i++) {
-    r[i].display();
+    r[i].display(corn);
     r[i].move();
     //If the raindrop is touching the catcher, increase score and move raindrop off the screen
     if ( r[i].disp && r[i].touch(c)) {
@@ -82,7 +84,7 @@ void game() {
     }
   }
   for (int i=0;i< pt.index;i++) {
-    p[i].display();
+    p[i].display(pig);
     p[i].move();
     //If the raindrop is touching the catcher, increase score and move raindrop off the screen
     if (p[i].touch(c) && p[i].disp) {

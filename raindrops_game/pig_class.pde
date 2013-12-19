@@ -5,7 +5,6 @@ class Pig {
   PVector vel;
   PVector acc;
   int d;
-  PImage pig;
   boolean disp;
 
   Pig() {
@@ -15,10 +14,9 @@ class Pig {
     d=int(random(50, 100));
     acc= new PVector(0, .01);
     imageMode(CENTER);
-    pig=loadImage("pig.png");
     disp=true;
   }
-  void display() {
+  void display(PImage pig) {
     if (disp) {
       image(pig, loc.x, loc.y, d, d);
     }
