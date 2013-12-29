@@ -21,7 +21,6 @@ void setup() {
   //initialize all other variables, classes, and arrays
   c=new Catcher();
   t =new Timer();
-
   corn= new Corn[100];
   pig=new Pig[6];
   screen= new StartEndScreen();
@@ -126,7 +125,7 @@ void keyPressed() {
     pig=new Pig[6];
     screen= new StartEndScreen();
     for (int i=0; i<corn.length; i++) {
-      corn[i]= new Corn();
+      corn[i] new Corn();
     }
     for (int i=0; i<pig.length; i++) {
       pig[i]= new Pig();
