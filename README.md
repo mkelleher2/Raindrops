@@ -8,7 +8,7 @@ You are a farmer in a magical land.  A storm came and swept up all your corn, an
 
 **Instructions:** 
 
-Use your mouse to control the basket in order to catch the falling corn.  Each ear of corn will add one point to your score, but each pig you catch will decrease your score by ten.  To make matters worse, if you catch three pigs, it is game over.  In order to win, you must have a score of at least 50 points by the time the 100th ear of corn hits the ground.
+Use your mouse to control the basket in order to catch the falling corn. It only counts as caught if it hits the top of the basket; don't try to catch corn with the side. Each ear of corn will add one point to your score, but each pig you catch will decrease your score by ten.  To make matters worse, if you catch three pigs, it is game over.  In order to win, you must have a score of at least 50 points by the time the 100th ear of corn hits the ground.
 To restart the game, just hit the R key at any time
 
 
