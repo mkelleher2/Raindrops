@@ -1,3 +1,20 @@
 Raindrops
 =========
-In this game, raindrops,lightning bolts,and shooting stars will fall at specified intervals from the top of the screen. A catcher at the bottom of the screen will catch the raindrops, scoring one point for each raindrop it catches. If the player catch a shooting star, he or she get ten points.  There will be three lives.  If the player misses a raindrop or catches a lightning bolt, he or she will lose one life. However, if the player catches a shooting star, he or she will get an extra life. If he or she runs out of lives, the game is over.  
+
+**Story:** 
+
+You are a farmer in a magical land.  A storm came and swept up all your corn, and now it is falling from the sky.  You can't let it all of it hit the ground, or you can't sell it!  Be careful of the evil flying pigs who are coming to eat your corn!
+
+
+**Instructions:** 
+
+Use your mouse to control the basket in order to catch the falling corn.  Each ear of corn will add one point to your score, but each pig you catch will decrease your score by ten.  To make matters worse, if you catch three pigs, it is game over.  In order to win, you must have a score of at least 50 points by the time the 100th ear of corn hits the ground.
+To restart the game, just hit the R key at any time
+
+
+**Issues:** 
+
+At random times, the start button will not work, but all you have to do is press the R key a couple times to get the button to start working. 
+
+
+
