@@ -1,35 +1,28 @@
-//Create a class for the raindrops
-class Raindrops {
+//Create a class for the pigs
+class Pig {
   //declare all variables
   PVector loc;
   PVector vel;
   PVector acc;
   int d;
-  color c;
+  PImage pig;
 
-  Raindrops() {
+  Pig() {
     //initialize all variables
     loc=new PVector(random(d/2, width-d/2), -d);
     vel=new PVector(0, random(2, 6));
-    d=int(random(5, 15));
+    d=int(random(50, 100));
     acc= new PVector(0, .01);
-    score=0;
-    //set the color mode to HSB and pick a random color within a range of blues for the raindrop
-    c=color(random(190, 210), 100, 100);
-    //make it so that the raindrop will not have broder lines
-    noStroke();
-      colorMode(HSB, 360, 100, 100);
+    imageMode(CENTER);
+    pig=loadImage("pig.png");
   }
   void display() {
-    //fill the raindrop with the color established above
-    fill(c);
-    //create an ellipse for the raindrop
-    ellipse(loc.x, loc.y, d, d);
+    image(pig, loc.x, loc.y, d, d);
   }
   void move() {
-    //move the drop at the established velocity
+    //move the pig at the established velocity
     loc.add(vel);
-    //accelerate the drop at the established velocity
+    //accelerate the  at the established velocity
     vel.add(acc);
   }
   //Check if the drop it touching the catcher
@@ -44,4 +37,3 @@ class Raindrops {
     }
   }
 }
-
