@@ -4,19 +4,19 @@ class Catcher {
   PVector loc;
   int d;
   boolean disp;
-  PImage catcher;
   Catcher() {
-    //initialize all variables
+    //initialize  the location to be at 100 pixels from the bottom of the screen a the mouse x location
     loc= new PVector(mouseX, height-100);
+    //set the diamter of the image to be 200
     d=200;
+    //turn on the display
     disp=true;
-    catcher=loadImage("catcher.png");
+   
   }
-  void move() {
+  void move(PImage tempCatch) {
     if (disp) {
-      fill(360, 0, 100);
-      //create an ellipse for the catcher
-      image(catcher,loc.x, loc.y, d, d);
+      //display the image
+      image(tempCatch,loc.x, loc.y, d, d);
       //set the x location of the mouse as the x location of the catcher
       loc.x=mouseX;
     }

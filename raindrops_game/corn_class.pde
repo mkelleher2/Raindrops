@@ -1,5 +1,5 @@
-//Create a class for the raindrops
-class Raindrops {
+//Create a class for the corn
+class Corn {
   //declare all variables
   PVector loc;
   PVector vel;
@@ -7,20 +7,16 @@ class Raindrops {
   int d;
   boolean disp;
 
-  Raindrops() {
-    //initialize all variables
+  Corn() {
+
     loc=new PVector(random(d/2, width-d/2), -d);
     vel=new PVector(0, random(2, 6));
     d=int(random(30, 50));
     acc= new PVector(0, .01);
-    score=0;
-    //set the color mode to HSB and pick a random color within a range of blues for the raindrop
-    //make it so that the raindrop will not have broder lines
     disp=true;
   }
   void display(PImage corn) {
     if (disp) {
-      //create an ellipse for the raindrop
       image(corn, loc.x, loc.y, d, d);
     }
   }

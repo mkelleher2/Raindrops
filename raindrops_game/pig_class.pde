@@ -32,7 +32,7 @@ class Pig {
   //Check if the drop it touching the catcher
   boolean touch(Catcher ca) {
     //if the distance between the centers of the catcher and the raindrop is less than the sum of the radii, they are touching  
-    if (loc.dist(ca.loc)<(d/2+ca.d/2)) {
+     if ((loc.dist(ca.loc))<(d/2+ca.d/2) && loc.y>(height-180) &&loc.y<(height-160)) {
       return true;
     }
     //otherwise they are not
