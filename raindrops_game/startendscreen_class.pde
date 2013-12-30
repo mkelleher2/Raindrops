@@ -69,7 +69,7 @@ class StartEndScreen {
     text("Start", width/2, height*9/20);
   }
   //check if the button is pressed
-  boolean run() {
+  boolean runStart() {
     //if button is pressed, return true
     if (mouseX>width/4 && mouseX<3*width/4 &&mouseY>height*17/40 && mouseY<height*19/40) {
       return true;

@@ -94,7 +94,7 @@ void draw() {
     text("Score: \n"+ score, 60, 50);
     text("Lives: \n"+ lives, width-60, 50);
     //turn on the end screen when applicable
-    screen.displayEnd(corn, c, pig, scenery, lives,happy, sad);
+    screen.displayEnd(corn, c, pig, scenery, lives, happy, sad);
   }
   //if the boolean go is not made true, display the startscreen
   if (!go) {
@@ -104,12 +104,12 @@ void draw() {
 //if the mouse is pressed, check if the boolean triggered is false, and if not, start the game and set the boolean to true
 void mousePressed() {
   if (!triggered) {
-    go=screen.run();
+    go=screen.runStart();
     triggered=true;
   }
 }
 /*create a reset button (the r button) that when pressed will bring all variables back
-to their original settings and reload the background*/
+ to their original settings and reload the background*/
 void keyPressed() {
   if (key=='r') {
     score=0;
@@ -125,7 +125,7 @@ void keyPressed() {
     pig=new Pig[6];
     screen= new StartEndScreen();
     for (int i=0; i<corn.length; i++) {
-      corn[i] new Corn();
+      corn[i]= new Corn();
     }
     for (int i=0; i<pig.length; i++) {
       pig[i]= new Pig();
